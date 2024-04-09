@@ -1,16 +1,16 @@
-module decoder_2x4 (
-    input [1:0] input_bits,
-    output reg [3:0] output_bits
+module mux_2x1 (
+    input wire sel,
+    input wire data_0,
+    input wire data_1,
+    output reg output_data
 );
 
 always @(*)
 begin
-    case (input_bits)
-        2'b00: output_bits = 4'b0001;
-        2'b01: output_bits = 4'b0010;
-        2'b10: output_bits = 4'b0100;
-        2'b11: output_bits = 4'b1000;
-        default: output_bits = 4'bxxxx; // 'x'는 값이 정해지지 않은 상태를 나타냄.
+    case (sel)
+        1'b0: output_data = data_0;
+        1'b1: output_data = data_1;
+        default: output_data = 1'bx; // 선택 비트가 정의되지 않은 경우 출력을 'x'로 설정
     endcase
 end
 
