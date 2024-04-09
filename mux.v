@@ -1,4 +1,4 @@
-module decoder_2_to_4 (
+module decoder_2x4 (
     input [1:0] input_bits,
     output reg [3:0] output_bits
 );
